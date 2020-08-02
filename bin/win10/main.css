@@ -1,0 +1,98 @@
+body{
+    background-color: rgb(0, 158, 92);
+}
+
+#messageBox {
+    --controlIconPadding: 18px;
+    --controlIconSize: 10px;
+    --iconPadding: 5px;
+    --iconSize: 20px;
+    --headerHeight: 30px;
+    --messageFontSize: 1rem;
+    --titleFontSize: 0.85rem;
+
+    background-color: #F0F0F0;
+    display: grid;
+    filter: drop-shadow(0 0 5px #777);
+    grid-template-rows: var(--headerHeight) 1fr;
+    height: 200px;
+    left: 300px;
+    position: fixed;
+    top: 200px;
+    width: 360px;
+}
+
+#titleArea{
+    background-color: white;
+    cursor: default;
+    display: grid;
+    grid-row: 1 / 2;
+    grid-template-columns: 1fr calc(var(--controlIconSize) + var(--controlIconPadding) * 2) calc(var(--controlIconSize) + var(--controlIconPadding) * 2) calc(var(--controlIconSize) + var(--controlIconPadding) * 2);
+}
+
+#title{
+    display: flex;
+    font-size: var(--titleFontSize);
+    line-height: var(--headerHeight);
+    grid-column: 1 / 2;
+}
+
+#title span{
+    display: -webkit-box;
+    margin-right: 5px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#fileIcon{
+    fill: yellowgreen;
+    height: var(--iconSize);
+    padding: calc((var(--headerHeight) - var(--iconSize)) / 2) var(--iconPadding);
+    width: var(--iconSize);
+}
+
+.svg{
+    stroke: black;
+    padding: calc((var(--headerHeight) - var(--controlIconSize)) / 2) var(--controlIconPadding);
+    width: var(--controlIconSize);
+}
+
+#smallIcon{
+    grid-column: 2 / 3;
+    stroke-width: 1.5;
+}
+
+#smallIcon:hover{
+    background-color: #E5E5E5;
+}
+
+#openIcon{
+    grid-column: 3 / 4;
+    stroke-width: 2.5;
+}
+
+#openIcon:hover{
+    background-color: #E5E5E5;
+}
+
+#closeIcon{
+    height: var(--controlIconSize);
+    grid-column: 4 / 5;
+    stroke-width: 1.5;
+}
+
+#closeIcon:hover{
+    background-color: #E81123;
+    stroke: white;
+}
+
+#messageArea{
+    font-size: var(--messageFontSize);
+    grid-row: 2 / 3;
+    padding: 5px 10px;
+}
+
+#messageBox.isInvisible{
+    display: none;
+}

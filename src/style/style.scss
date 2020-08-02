@@ -1,0 +1,115 @@
+@use "_variable" as *;
+@use "./../../node_modules/destyle.css/destyle.css";
+
+.contents-wrapper {
+  background-color: rgb(169, 204, 145);
+  height: 100vh;
+  padding: 50px 30px;
+  width: 100vw;
+
+  .message-box {
+    &.is-invisible {
+      display: none;
+    }
+
+    &.win10:not(.is-invisible) {
+      background-color: #F0F0F0;
+      display: grid;
+      box-shadow:
+        0 0 10px 15px #00000003,
+        0 15px 10px 5px #00000007,
+        10px 0 7px 0px #00000005,
+        -10px 0 7px 0px #00000005;
+        grid-template-areas:
+          "window-icon-area caption-area min-icon-area max-icon-area close-icon-area"
+          "message-area message-area message-area message-area message-area";
+        grid-template-columns:
+          #{$icon_size}
+          1fr
+          #{$control-icon_size}
+          #{$control-icon_size}
+          #{$control-icon_size};
+        grid-template-rows: #{$header-height} 1fr;
+      height: 200px;
+      // margin: 0 auto;
+      left: 20px;
+      position: absolute;
+      top: 20px;
+      width: 360px;
+
+      .title-area {
+        background-color: $header_color;
+        cursor: default;
+        user-select: none;
+        &.window-icon {
+          fill: $icon_color;
+          grid-area: window-icon-area;
+          height: $header-height;
+          margin: auto 0;
+          padding: 0 $icon_padding;
+          width: $icon_size;
+        }
+
+        &.caption-string {
+          color: $header_text-color;
+          font-size: $header_font-size;
+          grid-area: caption-area;
+          line-height: $header-height;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        &.title-icon{
+          &.min{
+            height: $header-height;
+            margin: auto 0;
+            grid-area: min-icon-area;
+            padding: 0 $control-icon_padding;
+            stroke: #fff;
+            stroke-width: 3px;
+            width: $control-icon_size;
+
+            &:hover {
+              background-color: $control-icon_hover-color;
+            }
+          }
+
+          &.max {
+            height: $header-height;
+            margin: auto 0;
+            grid-area: max-icon-area;
+            padding: 0 $control-icon_padding;
+            stroke: #fff;
+            stroke-width: 3px;
+            width: $control-icon_size;
+
+            &:hover {
+              background-color: $control-icon_hover-color;
+            }
+          }
+
+          &.close {
+            height: $header-height;
+            margin: auto 0;
+            grid-area: close-icon-area;
+            padding: 0 $control-icon_padding;
+            stroke: #fff;
+            stroke-width: 2.5px;
+            width: $control-icon_size;
+
+            &:hover {
+              background-color: $control-icon-close_hover-color;
+            }
+          }
+        }
+      }
+
+      .message-area {
+        font-size: $message_font-size;
+        grid-area: message-area;
+        padding: $message_padding;
+      }
+    }
+  }
+}
