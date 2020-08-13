@@ -1,5 +1,4 @@
-
-![license-badge](https://img.shields.io/github/license/ryokohbato/Windows-MessageBox)
+[![license-badge](https://img.shields.io/github/license/ryokohbato/Windows-MessageBox)](https://github.com/ryokohbato/Windows-MessageBox/blob/master/LICENSE)
 
 # Windows-MessageBox
 
