@@ -1,3 +1,6 @@
+
+![license-badge](https://img.shields.io/github/forks/ryokohbato/Windows-MessageBox)
+
 # Windows-MessageBox
 
 Windows10-like window made by TypeScript & CSS.
