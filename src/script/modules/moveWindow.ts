@@ -1,16 +1,14 @@
 export function moveWindow() :void
 {
-  const messageBox = document.getElementsByClassName("message-box")[0] as HTMLElement;
+  const messageBox = document.getElementsByClassName("message-box")[0];
   // ウィンドウの移動を管理
   const MoveWindow =
   {
-    start:
-    {
+    start: {
       x: 0,
       y: 0,
     },
-    start_window:
-    {
+    start_window: {
       x: 0,
       y: 0,
     }
@@ -30,7 +28,7 @@ export function moveWindow() :void
     continueMovingWindow(event);
   })
 
-  document.addEventListener("mouseup", () =>
+  document.addEventListener("mouseup", event =>
   {
     endMovingWindow(event);
   })
@@ -55,8 +53,8 @@ export function moveWindow() :void
     const mouseEvent = event as MouseEvent;
     MoveWindow.start.x = mouseEvent.clientX;
     MoveWindow.start.y = mouseEvent.clientY;
-    MoveWindow.start_window.x = Number(messageBox.getBoundingClientRect().x);
-    MoveWindow.start_window.y = Number(messageBox.getBoundingClientRect().y);
+    MoveWindow.start_window.x = messageBox.getBoundingClientRect().x;
+    MoveWindow.start_window.y = messageBox.getBoundingClientRect().y;
 
     onDragging = true;
   }
@@ -66,8 +64,8 @@ export function moveWindow() :void
     if (toMoveWindow && onDragging)
     {
       const mouseEvent = event as MouseEvent;
-      messageBox.style.left = String(MoveWindow.start_window.x + mouseEvent.clientX - MoveWindow.start.x) + "px";
-      messageBox.style.top = String(MoveWindow.start_window.y + mouseEvent.clientY - MoveWindow.start.y) + "px";
+      (messageBox as HTMLElement).style.left = `${MoveWindow.start_window.x + mouseEvent.clientX - MoveWindow.start.x}px`;
+      (messageBox as HTMLElement).style.top = `${MoveWindow.start_window.y + mouseEvent.clientY - MoveWindow.start.y}px`;
       toMoveWindow = false;
 
       setTimeout(() =>
