@@ -1,6 +1,7 @@
 export function moveWindow() :void
 {
   const messageBox = document.getElementsByClassName("message-box")[0];
+  const messageBox__caption = document.getElementsByClassName("message-box__caption")[0];
   // ウィンドウの移動を管理
   const MoveWindow =
   {
@@ -18,7 +19,7 @@ export function moveWindow() :void
   let toMoveWindow :boolean = true;
   const fps = 30;
 
-  messageBox.addEventListener("mousedown", event =>
+  messageBox__caption.addEventListener("mousedown", event =>
   {
     startMovingWindow(event);
   })
@@ -33,17 +34,17 @@ export function moveWindow() :void
     endMovingWindow(event);
   })
 
-  messageBox.addEventListener("touchstart", event =>
+  messageBox__caption.addEventListener("touchstart", event =>
   {
     startMovingWindow(event);
   })
 
-  messageBox.addEventListener("touchmove", event =>
+  document.addEventListener("touchmove", event =>
   {
     continueMovingWindow(event);
   })
 
-  messageBox.addEventListener("touchend", event =>
+  document.addEventListener("touchend", event =>
   {
     endMovingWindow(event);
   })

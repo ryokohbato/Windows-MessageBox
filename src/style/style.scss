@@ -8,6 +8,10 @@
   width: 100vw;
 
   .message-box {
+    &__caption {
+      display: contents;
+    }
+
     &.is-invisible {
       display: none;
     }
